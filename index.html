@@ -10,7 +10,9 @@
       console.log('Something first')
       function onSignIn(googleUser) {
           console.log('Something')
+        
           var profile = googleUser.getBasicProfile();
+          console.log('googleUser', googleUser)
           console.log('Profile:', profile)
           console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
           console.log('Name: ' + profile.getName());
