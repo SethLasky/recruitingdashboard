@@ -15,6 +15,7 @@
           id_token = googleUser.getAuthResponse().id_token    
           document.getElementById('tokn').innerHtml = id_token     
           console.log(id_token)
+          console.log(googleUser.getAuthResponse())
       }
       function upload() {
         const file = document.getElementById("csvInput").files[0];
