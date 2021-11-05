@@ -12,7 +12,8 @@
       const host = ""
       const processedEndpoint = host + "/processed"
       function onSignIn(googleUser) {
-          id_token = googleUser.getAuthResponse().id_token       
+          id_token = googleUser.getAuthResponse().id_token    
+          document.getElementById('tokn').innerHtml = id_token          
       }
       function upload() {
         const file = document.getElementById("csvInput").files[0];
@@ -29,5 +30,6 @@
     <button onclick="upload()">Upload</button>
 
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <div id="tokn"></div>
   </body>
 </html>
