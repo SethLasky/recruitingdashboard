@@ -13,7 +13,8 @@
       const processedEndpoint = host + "/processed"
       function onSignIn(googleUser) {
           id_token = googleUser.getAuthResponse().id_token    
-          document.getElementById('tokn').innerHtml = id_token          
+          document.getElementById('tokn').innerHtml = id_token     
+          console.log(id_token)
       }
       function upload() {
         const file = document.getElementById("csvInput").files[0];
