@@ -12,7 +12,9 @@
     function start() {
       gapi.load('auth2', function() {
         auth2 = gapi.auth2.init({
-          client_id: '210438472057-d4b7da25cv6cu37poqmadsg4sbg15baj.apps.googleusercontent.com'
+          client_id: '210438472057-d4b7da25cv6cu37poqmadsg4sbg15baj.apps.googleusercontent.com',
+          scope: 'https://www.googleapis.com/auth/drive'
+         
         });
       });
     }
