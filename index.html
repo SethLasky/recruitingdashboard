@@ -2,7 +2,21 @@
 <html>
   <head>
     <title>Drive API Quickstart</title>
-    <meta charset="utf-8" />
+    <!-- BEGIN Pre-requisites -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
+    </script>
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer>
+    </script>
+    <!-- END Pre-requisites -->
+    <script>
+    function start() {
+      gapi.load('auth2', function() {
+        auth2 = gapi.auth2.init({
+          client_id: '210438472057-d4b7da25cv6cu37poqmadsg4sbg15baj.apps.googleusercontent.com'
+        });
+      });
+    }
+  </script>
   </head>
   <body>
     <meta name="google-signin-client_id" content="210438472057-d4b7da25cv6cu37poqmadsg4sbg15baj.apps.googleusercontent.com">
@@ -26,13 +40,22 @@
         fetch(processedEndpoint, {method: "POST", body: formData});
       }
       
+      function signInCallBack(code){
+        console.log("code", code)
+      }
+      
     </script>
     
     <label for="csvInput">Upload new processed file</label>
     <input type="file" id="csvInput" name="csvInput">
     <button onclick="upload()">Upload</button>
-
-    <div class="g-signin2" data-onsuccess="auth2.grantOfflineAccess({}).then(onSignIn)"></div>
+    <button id="signinButton">Sign in with Google</button>
+<script>
+  $('#signinButton').click(function() {
+    // signInCallback defined in step 6.
+    auth2.grantOfflineAccess().then(signInCallback);
+  });
+</script>
     <div id="tokn"></div>
   </body>
 </html>
