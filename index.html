@@ -42,6 +42,7 @@
       
       function signInCallback(code){
         console.log("code", code)
+        consoleo.log(code.code)
       }
       
     </script>
@@ -53,7 +54,8 @@
 <script>
   $('#signinButton').click(function() {
     // signInCallback defined in step 6.
-    auth2.grantOfflineAccess().then(signInCallback);
+    
+    auth2.grantOfflineAccess({'redirect_uri' : 'postmessage', 'approval_prompt' : 'force'}).then(signInCallback);
   });
 </script>
     <div id="tokn"></div>
